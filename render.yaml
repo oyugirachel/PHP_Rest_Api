@@ -1,0 +1,6 @@
+services:
+  - name: php
+    buildCommand: |
+      # Build Docker image
+      docker build -t $RENDER_IMAGE_NAME --build-arg COMMIT_SHA=$RENDER_COMMIT_SHA .
+    startCommand: "docker run -p 8080:80 $RENDER_IMAGE_NAME"
